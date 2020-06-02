@@ -1,0 +1,103 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+ <head>
+  <meta charset="utf-8">
+  <title>Данные с БС Вега</title>
+   <script src="https://www.google.com/jsapi"></script>
+  <script th:inline="javascript">
+   google.load("visualization", "1", {packages:["corechart"]});
+   google.setOnLoadCallback(drawChart);
+   function drawChart() {
+     var data1 = [[${procent1}]];
+       var data2 = [[${procent2}]];
+       var data = google.visualization.arrayToDataTable([
+     ['Входы', 'Процент'],
+     ['Выключенные входы', data1],
+     ['Включенные входы', data2]
+    ]);
+    var options = {
+     title: 'Анализ данных'
+    };
+    var chart = new google.visualization.PieChart(document.getElementById('air'));
+     chart.draw(data, options);
+   }
+  </script>
+   <style type="text/css">
+   table {
+font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+font-size: 14px;
+border-collapse: collapse;
+text-align: center;
+width: 300px;
+    border: 1px solid green;
+    margin: auto;
+}
+th, td:first-child {
+background: #AFCDE7;
+color: white;
+padding: 10px 20px;
+}
+th, td {
+border-style: solid;
+border-width: 0 1px 1px 0;
+border-color: white;
+}
+td {
+background: #D8E6F3;
+}
+th:first-child, td:first-child {
+text-align: left;
+}
+</style>
+</head>
+<body>
+<table>
+  <caption><h2>Данные с БС Вега</h2></caption>
+<tr>
+  <th>Дата Время</th>
+  <th>Вход 1</th>
+  <th>Вход 2</th>
+  <th>Вход 3</th>
+  <th>Вход 4</th>
+  <th>Вход 5</th>
+  <th>Вход 6</th>
+  <th>Вход 7</th>
+  <th>Вход 8</th>
+  <th>Вход 9</th>
+  <th>Вход 10</th>
+  <th>Вход 11</th>
+  <th>Вход 12</th>
+  <th>Вход 13</th>
+  <th>Вход 14</th>
+  <th>Вход 15</th>
+  <th>Вход 16</th>
+  <th>Аналоговый вход</th>
+
+  </tr>
+ <tr>
+  <td th:text ="${date}"/></td>
+  <td th:text ="${c1}"/></td>
+  <td th:text ="${c2}"/></td>
+  <td th:text ="${c3}"/></td>
+  <td th:text ="${c4}"/></td>
+  <td th:text ="${c5}"/></td>
+  <td th:text ="${c6}"/> </td>
+  <td th:text ="${c7}"/></td>
+  <td th:text ="${c8}"/></td>
+  <td th:text ="${c9}"/></td>
+  <td th:text ="${c10}"/></td>
+  <td th:text ="${c11}"/></td>
+  <td th:text ="${c12}"/></td>
+  <td th:text ="${c13}"/></td>
+  <td th:text ="${c14}"/></td>
+  <td th:text ="${c15}"/></td>
+  <td th:text ="${c16}"/></td>
+  <td th:text ="${str3}"/></td>
+ </tr>
+
+</table>
+
+<div id="air" style="width: 800px; height: 400px;"></div>
+
+</body>
+</html>
